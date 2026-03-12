@@ -19,6 +19,13 @@ export class EssTimeOffService {
     return this.draftRepo.save(draft);
   }
 
+  async findAllDrafts(tenantId: string): Promise<EssTimeOffDraft[]> {
+    return this.draftRepo.find({
+      where: { tenant_id: tenantId },
+      order: { updated_at: 'DESC' },
+    });
+  }
+
   async getDrafts(tenantId: string, employeeId: string): Promise<EssTimeOffDraft[]> {
     return this.draftRepo.find({
       where: { tenant_id: tenantId, employee_id: employeeId },

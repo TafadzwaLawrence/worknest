@@ -16,6 +16,11 @@ import { CurrentUser } from '../../auth/decorators/current-user.decorator.js';
 export class EssTimeOffController {
   constructor(private readonly timeOffService: EssTimeOffService) {}
 
+  @Get()
+  findAllDrafts(@CurrentUser() user: { tenant_id: string }) {
+    return this.timeOffService.findAllDrafts(user.tenant_id);
+  }
+
   @Post('drafts')
   saveDraft(
     @CurrentUser() user: { tenant_id: string },

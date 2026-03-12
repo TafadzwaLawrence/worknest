@@ -40,7 +40,8 @@ import { DocumentAclController, DocumentShareController } from './controllers/do
     ]),
   ],
   controllers: [
-    DocumentController,
+    // Static-prefix controllers MUST be listed before DocumentController to prevent
+    // Express from matching 'storage-locations' etc. as a :id param in DocumentController
     DocumentTagController,
     StorageLocationController,
     DocumentCategoryController,
@@ -48,6 +49,8 @@ import { DocumentAclController, DocumentShareController } from './controllers/do
     DocumentRetentionController,
     DocumentAclController,
     DocumentShareController,
+    // DocumentController last because it has a catch-all :id route
+    DocumentController,
   ],
   providers: [
     DocumentService,

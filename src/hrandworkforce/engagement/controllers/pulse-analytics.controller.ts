@@ -18,6 +18,11 @@ import { CurrentUser } from '../../auth/decorators/current-user.decorator.js';
 export class PulseAnalyticsController {
   constructor(private readonly pulseAnalyticsService: PulseAnalyticsService) {}
 
+  @Get()
+  findAll(@CurrentUser() user: { tenant_id: string }) {
+    return this.pulseAnalyticsService.findAllPulseQuestions(user.tenant_id);
+  }
+
   @Post('questions')
   createQuestion(
     @CurrentUser() user: { tenant_id: string; id: string },

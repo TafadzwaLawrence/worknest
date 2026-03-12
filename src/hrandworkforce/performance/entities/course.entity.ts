@@ -28,7 +28,7 @@ export class Course {
   @Column({ type: 'text', nullable: true })
   category: string;
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ name: 'difficulty_level', type: 'text', nullable: true })
   level: string;
 
   @Column({ type: 'text', array: true, default: '{}' })

@@ -1,0 +1,384 @@
+{
+  "generated": "2026-03-12T19:22:16.410Z",
+  "baseUrl": "https://worknest-01d4.onrender.com/api",
+  "tenantId": "00000000-0000-0000-0000-000000000001",
+  "createdIds": {
+    "dept": "628f6e75-4a8f-456d-93dd-ad40a057c089",
+    "designation": "08eb9bf7-19f7-4d15-82a8-b5f05e80e2d3",
+    "workLocation": "f978ca48-1b29-4017-b974-b3063454cdc5",
+    "employee": "ee0d16bf-85ef-4e6c-bfe8-f25b53964831"
+  },
+  "responses": {
+    "POST /auth/register": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3M2FlMmI0OS1kYTcwLTQ3YjgtYmE4Yi00OTI3Mjg4MzhlZDkiLCJlbWFpbCI6InNtb2tldGVzdEB3b3JrbmVzdC5kZXYiLCJ0ZW5hbnRJZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsImlzU3VwZXJBZG1pbiI6ZmFsc2UsImlhdCI6MTc3MzM0MzI5MywiZXhwIjoxNzczNDI5NjkzfQ.4WUTYb3fMvo1ivzWF1tzUVuQd_lhgQ5IzoWEIxO4D4U",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3M2FlMmI0OS1kYTcwLTQ3YjgtYmE4Yi00OTI3Mjg4MzhlZDkiLCJlbWFpbCI6InNtb2tldGVzdEB3b3JrbmVzdC5kZXYiLCJ0ZW5hbnRJZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsImlzU3VwZXJBZG1pbiI6ZmFsc2UsImlhdCI6MTc3MzM0MzI5MywiZXhwIjoxNzczOTQ4MDkzfQ.vcPTrb779bAQqf-9LW1yLEi4WkyihZWR3ELq_V7-6yQ"
+    },
+    "POST /auth/login": {
+      "accessToken": "<jwt>",
+      "refreshToken": "<jwt>"
+    },
+    "POST /departments": {
+      "id": "628f6e75-4a8f-456d-93dd-ad40a057c089",
+      "name": "Engineering",
+      "code": "ENG",
+      "description": null,
+      "cost_center": null,
+      "parent_department_id": null,
+      "hierarchy_level": 1,
+      "is_active": true,
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "department_head_id": null,
+      "created_by": "d42af608-df81-4da5-aa82-570e2243f45c",
+      "created_at": "2026-03-12T19:21:37.502Z",
+      "updated_at": "2026-03-12T19:21:37.502Z",
+      "deleted_at": null
+    },
+    "GET /departments": {
+      "data": [
+        {
+          "id": "628f6e75-4a8f-456d-93dd-ad40a057c089",
+          "name": "Engineering",
+          "code": "ENG",
+          "description": null,
+          "cost_center": null,
+          "parent_department_id": null,
+          "hierarchy_level": 1,
+          "is_active": true,
+          "tenant_id": "00000000-0000-0000-0000-000000000001",
+          "department_head_id": null,
+          "created_by": "d42af608-df81-4da5-aa82-570e2243f45c",
+          "created_at": "2026-03-12T19:21:37.502Z",
+          "updated_at": "2026-03-12T19:21:37.502Z",
+          "deleted_at": null
+        }
+      ],
+      "total": 1,
+      "page": 1,
+      "limit": 20
+    },
+    "POST /designations": {
+      "id": "08eb9bf7-19f7-4d15-82a8-b5f05e80e2d3",
+      "title": "Software Engineer",
+      "code": "SE-001",
+      "grade": null,
+      "description": null,
+      "pay_grade": null,
+      "pay_scale": null,
+      "job_description": null,
+      "requirements": null,
+      "is_active": true,
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "created_at": "2026-03-12T19:21:39.188Z",
+      "updated_at": "2026-03-12T19:21:39.188Z",
+      "deleted_at": null
+    },
+    "GET /designations": {
+      "data": [
+        {
+          "id": "08eb9bf7-19f7-4d15-82a8-b5f05e80e2d3",
+          "title": "Software Engineer",
+          "code": "SE-001",
+          "grade": null,
+          "description": null,
+          "pay_grade": null,
+          "pay_scale": {
+            "currency": "USD",
+            "maxSalary": 0,
+            "minSalary": 0
+          },
+          "job_description": null,
+          "requirements": null,
+          "is_active": true,
+          "tenant_id": "00000000-0000-0000-0000-000000000001",
+          "created_at": "2026-03-12T19:21:39.188Z",
+          "updated_at": "2026-03-12T19:21:39.188Z",
+          "deleted_at": null
+        }
+      ],
+      "total": 1,
+      "page": 1,
+      "limit": 20
+    },
+    "POST /work-locations": {
+      "id": "f978ca48-1b29-4017-b974-b3063454cdc5",
+      "name": "Harare HQ",
+      "code": "HRE-HQ",
+      "type": "office",
+      "address": null,
+      "timezone": null,
+      "contact_number": null,
+      "contact_cell_number": null,
+      "email": null,
+      "capacity": null,
+      "facilities": [],
+      "is_active": true,
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "created_at": "2026-03-12T19:21:40.867Z",
+      "updated_at": "2026-03-12T19:21:40.867Z",
+      "deleted_at": null
+    },
+    "GET /work-locations": {
+      "data": [
+        {
+          "id": "f978ca48-1b29-4017-b974-b3063454cdc5",
+          "name": "Harare HQ",
+          "code": "HRE-HQ",
+          "type": "office",
+          "address": {
+            "city": "",
+            "state": "",
+            "street": "",
+            "country": "",
+            "postalCode": "",
+            "coordinates": {
+              "lat": 0,
+              "lng": 0
+            }
+          },
+          "timezone": null,
+          "contact_number": null,
+          "contact_cell_number": null,
+          "email": null,
+          "capacity": null,
+          "facilities": [],
+          "is_active": true,
+          "tenant_id": "00000000-0000-0000-0000-000000000001",
+          "created_at": "2026-03-12T19:21:40.867Z",
+          "updated_at": "2026-03-12T19:21:40.867Z",
+          "deleted_at": null
+        }
+      ],
+      "total": 1,
+      "page": 1,
+      "limit": 20
+    },
+    "POST /employees": {
+      "id": "ee0d16bf-85ef-4e6c-bfe8-f25b53964831",
+      "first_name": "John",
+      "last_name": "Doe",
+      "display_name": null,
+      "employee_code": "EMP-001",
+      "email": "john.doe@worknest.dev",
+      "personal_email": null,
+      "work_phone_number": null,
+      "personal_cell_number": null,
+      "date_of_birth": null,
+      "gender": null,
+      "nationality": null,
+      "date_of_join": "2024-01-15",
+      "date_of_confirmation": null,
+      "date_of_exit": null,
+      "employment_type": "full_time",
+      "employment_status": "active",
+      "department_id": "628f6e75-4a8f-456d-93dd-ad40a057c089",
+      "designation_id": null,
+      "work_location_id": null,
+      "reporting_to": null,
+      "matrix_manager_id": null,
+      "base_salary": null,
+      "salary_currency": "USD",
+      "pay_frequency": "monthly",
+      "bank_account": null,
+      "system_user_id": null,
+      "requires_system_access": false,
+      "is_active": true,
+      "is_contractor": false,
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "created_at": "2026-03-12T19:21:42.862Z",
+      "updated_at": "2026-03-12T19:21:42.862Z",
+      "deleted_at": null
+    },
+    "GET /employees": {
+      "data": [
+        {
+          "id": "ee0d16bf-85ef-4e6c-bfe8-f25b53964831",
+          "first_name": "John",
+          "last_name": "Doe",
+          "display_name": null,
+          "employee_code": "EMP-001",
+          "email": "john.doe@worknest.dev",
+          "personal_email": null,
+          "work_phone_number": null,
+          "personal_cell_number": null,
+          "date_of_birth": null,
+          "gender": null,
+          "nationality": null,
+          "date_of_join": "2024-01-15",
+          "date_of_confirmation": null,
+          "date_of_exit": null,
+          "employment_type": "full_time",
+          "employment_status": "active",
+          "department_id": "628f6e75-4a8f-456d-93dd-ad40a057c089",
+          "designation_id": null,
+          "work_location_id": null,
+          "reporting_to": null,
+          "matrix_manager_id": null,
+          "base_salary": null,
+          "salary_currency": "USD",
+          "pay_frequency": "monthly",
+          "bank_account": {
+            "branch": "",
+            "bankName": "",
+            "ifscCode": "",
+            "accountNumber": ""
+          },
+          "system_user_id": null,
+          "requires_system_access": false,
+          "is_active": true,
+          "is_contractor": false,
+          "tenant_id": "00000000-0000-0000-0000-000000000001",
+          "created_at": "2026-03-12T19:21:42.862Z",
+          "updated_at": "2026-03-12T19:21:42.862Z",
+          "deleted_at": null
+        }
+      ],
+      "total": 1,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /workflows": {
+      "data": [],
+      "total": 0,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /workflow-instances": {
+      "data": [],
+      "total": 0,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /recruitment/job-requisitions": {
+      "data": [],
+      "total": 0,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /recruitment/applications": {
+      "data": [],
+      "total": 0,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /recruitment/pipelines": [],
+    "GET /recruitment/interviews": {
+      "data": [],
+      "total": 0,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /recruitment/offers": {
+      "data": [],
+      "total": 0,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /documents": {
+      "data": [],
+      "total": 0,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /onboarding/templates": [],
+    "GET /onboarding/cases": [],
+    "GET /time-attendance/leave-types": [],
+    "GET /time-attendance/leave-periods": [],
+    "GET /time-attendance/records": [],
+    "GET /time-attendance/rules": [],
+    "GET /time-attendance/holidays": [],
+    "GET /payroll/pay-structures": [],
+    "GET /payroll/benefit-plans": [],
+    "GET /payroll/pay-periods": [],
+    "GET /payroll/runs": [],
+    "GET /payroll/expense-reports": [],
+    "GET /payroll/time-entries": [],
+    "GET /performance/reviews/cycles": [],
+    "GET /performance/reviews/templates": [],
+    "GET /performance/goals": [],
+    "GET /performance/competencies": [],
+    "GET /engagement/surveys": [],
+    "GET /engagement/recognition": [],
+    "GET /engagement/feedback": [],
+    "GET /ess/settings": {
+      "id": "3acbc8cc-870e-41eb-8d41-8ba736782e87",
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "features": {
+        "enableTimeOff": true,
+        "enableDocuments": true,
+        "showPaySummaries": true,
+        "allowProfileEdits": true,
+        "requireApprovalForPII": true
+      },
+      "portal_branding": {
+        "logoUrl": null,
+        "primaryColor": "#0f62fe",
+        "secondaryColor": "#393939"
+      },
+      "created_at": "2026-03-12T17:33:45.764Z",
+      "updated_at": "2026-03-12T17:33:45.764Z"
+    },
+    "GET /ess/profile-requests": [],
+    "GET /salary-revisions": [],
+    "GET /assets": [],
+    "GET /disciplinary/cases": [],
+    "GET /loans": [],
+    "GET /notifications": [],
+    "GET /notifications/unread": []
+  },
+  "summary": {
+    "passed": 47,
+    "failed": 10,
+    "failures": [
+      {
+        "endpoint": "GET /tenants",
+        "status": 403,
+        "error": "Super admin access required"
+      },
+      {
+        "endpoint": "GET /roles",
+        "status": 500,
+        "error": "Internal server error"
+      },
+      {
+        "endpoint": "GET /documents/storage-locations",
+        "status": 400,
+        "error": "Validation failed (uuid is expected)"
+      },
+      {
+        "endpoint": "GET /documents/categories",
+        "status": 400,
+        "error": "Validation failed (uuid is expected)"
+      },
+      {
+        "endpoint": "GET /documents/retention-policies",
+        "status": 400,
+        "error": "Validation failed (uuid is expected)"
+      },
+      {
+        "endpoint": "GET /performance/learning/courses",
+        "status": 500,
+        "error": "Internal server error"
+      },
+      {
+        "endpoint": "GET /performance/development/plans",
+        "status": 500,
+        "error": "Internal server error"
+      },
+      {
+        "endpoint": "GET /engagement/pulse",
+        "status": 404,
+        "error": "Cannot GET /api/engagement/pulse"
+      },
+      {
+        "endpoint": "GET /ess/time-off",
+        "status": 404,
+        "error": "Cannot GET /api/ess/time-off"
+      },
+      {
+        "endpoint": "GET /ess/documents",
+        "status": 404,
+        "error": "Cannot GET /api/ess/documents"
+      }
+    ]
+  }
+}
