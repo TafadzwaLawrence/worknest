@@ -1,8 +1,12 @@
 {
-  "generated": "2026-03-12T19:46:15.334Z",
+  "generated": "2026-03-12T20:17:48.690Z",
   "baseUrl": "https://worknest-01d4.onrender.com/api",
   "tenantId": "00000000-0000-0000-0000-000000000001",
-  "createdIds": {},
+  "createdIds": {
+    "dept": "628f6e75-4a8f-456d-93dd-ad40a057c089",
+    "designation": "08eb9bf7-19f7-4d15-82a8-b5f05e80e2d3",
+    "workLocation": "f978ca48-1b29-4017-b974-b3063454cdc5"
+  },
   "responses": {
     "POST /auth/register": {
       "message": "Email or username already in use",
@@ -12,6 +16,11 @@
     "POST /auth/login": {
       "accessToken": "<jwt>",
       "refreshToken": "<jwt>"
+    },
+    "GET /tenants (super-admin)": {
+      "message": "Super admin access required",
+      "error": "Forbidden",
+      "statusCode": 403
     },
     "GET /departments": {
       "data": [
@@ -217,10 +226,12 @@
     "GET /performance/reviews/templates": [],
     "GET /performance/goals": [],
     "GET /performance/competencies": [],
+    "GET /performance/learning/courses": [],
     "GET /performance/development/plans": [],
     "GET /engagement/surveys": [],
     "GET /engagement/recognition": [],
     "GET /engagement/feedback": [],
+    "GET /engagement/pulse/questions": [],
     "GET /ess/settings": {
       "id": "3acbc8cc-870e-41eb-8d41-8ba736782e87",
       "tenant_id": "00000000-0000-0000-0000-000000000001",
@@ -240,6 +251,7 @@
       "updated_at": "2026-03-12T17:33:45.764Z"
     },
     "GET /ess/profile-requests": [],
+    "GET /ess/time-off/drafts/00000000-0000-0000-0000-000000000001": [],
     "GET /ess/documents/required-acks": [],
     "GET /salary-revisions": [],
     "GET /assets": [],
@@ -249,14 +261,9 @@
     "GET /notifications/unread": []
   },
   "summary": {
-    "passed": 47,
-    "failed": 10,
+    "passed": 51,
+    "failed": 6,
     "failures": [
-      {
-        "endpoint": "GET /tenants",
-        "status": 403,
-        "error": "Super admin access required"
-      },
       {
         "endpoint": "POST /departments",
         "status": 500,
@@ -286,21 +293,6 @@
         "endpoint": "GET /documents/retention-policies",
         "status": 400,
         "error": "Validation failed (uuid is expected)"
-      },
-      {
-        "endpoint": "GET /performance/learning/courses",
-        "status": 500,
-        "error": "Internal server error"
-      },
-      {
-        "endpoint": "GET /engagement/pulse",
-        "status": 404,
-        "error": "Cannot GET /api/engagement/pulse"
-      },
-      {
-        "endpoint": "GET /ess/time-off",
-        "status": 404,
-        "error": "Cannot GET /api/ess/time-off"
       }
     ]
   }
