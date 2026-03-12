@@ -42,9 +42,19 @@ const ENTITIES = [
           // Supabase requires SSL on all connections
           ssl: { rejectUnauthorized: false },
           entities: ENTITIES,
+          autoLoadEntities: true,
           // Schema is managed by Flyway SQL migrations — never auto-sync
           synchronize: false,
           logging: configService.get<string>('app.nodeEnv') === 'development',
+          // Keep connections alive to prevent IPv6 reconnection issues
+          extra: {
+            keepAlive: true,
+            keepAliveInitialDelayMillis: 30000,
+            connectionTimeoutMillis: 15000,
+            idleTimeoutMillis: 600000,
+            max: 5,
+            min: 1,
+          },
         };
       },
     }),
