@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Designation } from '../entities/designation.entity.js';
@@ -31,7 +31,12 @@ export class DesignationService {
 
   async create(dto: CreateDesignationDto, tenantId: string): Promise<Designation> {
     const item = this.repo.create({ ...dto, tenant_id: tenantId });
-    return this.repo.save(item);
+    try {
+      return await this.repo.save(item);
+    } catch (e: any) {
+      if (e?.code === '23505') throw new ConflictException('A designation with that code already exists');
+      throw e;
+    }
   }
 
   async update(id: string, dto: UpdateDesignationDto, tenantId: string): Promise<Designation> {

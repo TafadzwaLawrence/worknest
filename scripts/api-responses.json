@@ -1,37 +1,17 @@
 {
-  "generated": "2026-03-12T19:22:16.410Z",
+  "generated": "2026-03-12T19:46:15.334Z",
   "baseUrl": "https://worknest-01d4.onrender.com/api",
   "tenantId": "00000000-0000-0000-0000-000000000001",
-  "createdIds": {
-    "dept": "628f6e75-4a8f-456d-93dd-ad40a057c089",
-    "designation": "08eb9bf7-19f7-4d15-82a8-b5f05e80e2d3",
-    "workLocation": "f978ca48-1b29-4017-b974-b3063454cdc5",
-    "employee": "ee0d16bf-85ef-4e6c-bfe8-f25b53964831"
-  },
+  "createdIds": {},
   "responses": {
     "POST /auth/register": {
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3M2FlMmI0OS1kYTcwLTQ3YjgtYmE4Yi00OTI3Mjg4MzhlZDkiLCJlbWFpbCI6InNtb2tldGVzdEB3b3JrbmVzdC5kZXYiLCJ0ZW5hbnRJZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsImlzU3VwZXJBZG1pbiI6ZmFsc2UsImlhdCI6MTc3MzM0MzI5MywiZXhwIjoxNzczNDI5NjkzfQ.4WUTYb3fMvo1ivzWF1tzUVuQd_lhgQ5IzoWEIxO4D4U",
-      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3M2FlMmI0OS1kYTcwLTQ3YjgtYmE4Yi00OTI3Mjg4MzhlZDkiLCJlbWFpbCI6InNtb2tldGVzdEB3b3JrbmVzdC5kZXYiLCJ0ZW5hbnRJZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsImlzU3VwZXJBZG1pbiI6ZmFsc2UsImlhdCI6MTc3MzM0MzI5MywiZXhwIjoxNzczOTQ4MDkzfQ.vcPTrb779bAQqf-9LW1yLEi4WkyihZWR3ELq_V7-6yQ"
+      "message": "Email or username already in use",
+      "error": "Conflict",
+      "statusCode": 409
     },
     "POST /auth/login": {
       "accessToken": "<jwt>",
       "refreshToken": "<jwt>"
-    },
-    "POST /departments": {
-      "id": "628f6e75-4a8f-456d-93dd-ad40a057c089",
-      "name": "Engineering",
-      "code": "ENG",
-      "description": null,
-      "cost_center": null,
-      "parent_department_id": null,
-      "hierarchy_level": 1,
-      "is_active": true,
-      "tenant_id": "00000000-0000-0000-0000-000000000001",
-      "department_head_id": null,
-      "created_by": "d42af608-df81-4da5-aa82-570e2243f45c",
-      "created_at": "2026-03-12T19:21:37.502Z",
-      "updated_at": "2026-03-12T19:21:37.502Z",
-      "deleted_at": null
     },
     "GET /departments": {
       "data": [
@@ -45,32 +25,16 @@
           "hierarchy_level": 1,
           "is_active": true,
           "tenant_id": "00000000-0000-0000-0000-000000000001",
-          "department_head_id": null,
+          "department_head_id": "ee0d16bf-85ef-4e6c-bfe8-f25b53964831",
           "created_by": "d42af608-df81-4da5-aa82-570e2243f45c",
           "created_at": "2026-03-12T19:21:37.502Z",
-          "updated_at": "2026-03-12T19:21:37.502Z",
+          "updated_at": "2026-03-12T19:21:42.862Z",
           "deleted_at": null
         }
       ],
       "total": 1,
       "page": 1,
       "limit": 20
-    },
-    "POST /designations": {
-      "id": "08eb9bf7-19f7-4d15-82a8-b5f05e80e2d3",
-      "title": "Software Engineer",
-      "code": "SE-001",
-      "grade": null,
-      "description": null,
-      "pay_grade": null,
-      "pay_scale": null,
-      "job_description": null,
-      "requirements": null,
-      "is_active": true,
-      "tenant_id": "00000000-0000-0000-0000-000000000001",
-      "created_at": "2026-03-12T19:21:39.188Z",
-      "updated_at": "2026-03-12T19:21:39.188Z",
-      "deleted_at": null
     },
     "GET /designations": {
       "data": [
@@ -98,24 +62,6 @@
       "total": 1,
       "page": 1,
       "limit": 20
-    },
-    "POST /work-locations": {
-      "id": "f978ca48-1b29-4017-b974-b3063454cdc5",
-      "name": "Harare HQ",
-      "code": "HRE-HQ",
-      "type": "office",
-      "address": null,
-      "timezone": null,
-      "contact_number": null,
-      "contact_cell_number": null,
-      "email": null,
-      "capacity": null,
-      "facilities": [],
-      "is_active": true,
-      "tenant_id": "00000000-0000-0000-0000-000000000001",
-      "created_at": "2026-03-12T19:21:40.867Z",
-      "updated_at": "2026-03-12T19:21:40.867Z",
-      "deleted_at": null
     },
     "GET /work-locations": {
       "data": [
@@ -153,40 +99,9 @@
       "limit": 20
     },
     "POST /employees": {
-      "id": "ee0d16bf-85ef-4e6c-bfe8-f25b53964831",
-      "first_name": "John",
-      "last_name": "Doe",
-      "display_name": null,
-      "employee_code": "EMP-001",
-      "email": "john.doe@worknest.dev",
-      "personal_email": null,
-      "work_phone_number": null,
-      "personal_cell_number": null,
-      "date_of_birth": null,
-      "gender": null,
-      "nationality": null,
-      "date_of_join": "2024-01-15",
-      "date_of_confirmation": null,
-      "date_of_exit": null,
-      "employment_type": "full_time",
-      "employment_status": "active",
-      "department_id": "628f6e75-4a8f-456d-93dd-ad40a057c089",
-      "designation_id": null,
-      "work_location_id": null,
-      "reporting_to": null,
-      "matrix_manager_id": null,
-      "base_salary": null,
-      "salary_currency": "USD",
-      "pay_frequency": "monthly",
-      "bank_account": null,
-      "system_user_id": null,
-      "requires_system_access": false,
-      "is_active": true,
-      "is_contractor": false,
-      "tenant_id": "00000000-0000-0000-0000-000000000001",
-      "created_at": "2026-03-12T19:21:42.862Z",
-      "updated_at": "2026-03-12T19:21:42.862Z",
-      "deleted_at": null
+      "message": "Employee with email john.doe@worknest.dev already exists",
+      "error": "Conflict",
+      "statusCode": 409
     },
     "GET /employees": {
       "data": [
@@ -233,6 +148,12 @@
         }
       ],
       "total": 1,
+      "page": 1,
+      "limit": 20
+    },
+    "GET /roles": {
+      "data": [],
+      "total": 0,
       "page": 1,
       "limit": 20
     },
@@ -296,6 +217,7 @@
     "GET /performance/reviews/templates": [],
     "GET /performance/goals": [],
     "GET /performance/competencies": [],
+    "GET /performance/development/plans": [],
     "GET /engagement/surveys": [],
     "GET /engagement/recognition": [],
     "GET /engagement/feedback": [],
@@ -318,6 +240,7 @@
       "updated_at": "2026-03-12T17:33:45.764Z"
     },
     "GET /ess/profile-requests": [],
+    "GET /ess/documents/required-acks": [],
     "GET /salary-revisions": [],
     "GET /assets": [],
     "GET /disciplinary/cases": [],
@@ -335,7 +258,17 @@
         "error": "Super admin access required"
       },
       {
-        "endpoint": "GET /roles",
+        "endpoint": "POST /departments",
+        "status": 500,
+        "error": "Internal server error"
+      },
+      {
+        "endpoint": "POST /designations",
+        "status": 500,
+        "error": "Internal server error"
+      },
+      {
+        "endpoint": "POST /work-locations",
         "status": 500,
         "error": "Internal server error"
       },
@@ -360,11 +293,6 @@
         "error": "Internal server error"
       },
       {
-        "endpoint": "GET /performance/development/plans",
-        "status": 500,
-        "error": "Internal server error"
-      },
-      {
         "endpoint": "GET /engagement/pulse",
         "status": 404,
         "error": "Cannot GET /api/engagement/pulse"
@@ -373,11 +301,6 @@
         "endpoint": "GET /ess/time-off",
         "status": 404,
         "error": "Cannot GET /api/ess/time-off"
-      },
-      {
-        "endpoint": "GET /ess/documents",
-        "status": 404,
-        "error": "Cannot GET /api/ess/documents"
       }
     ]
   }
