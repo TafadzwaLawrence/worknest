@@ -16,21 +16,17 @@ let responses = {};
 let createdIds = {};
 
 // ─── HTTP helper ─────────────────────────────────────────────────────────────
-async function req(method, path, body, extraHeaders = {}) {
+async function req(method, path, body, extraHeaders = {}, timeoutMs = 30000) {
   try {
     const url = BASE + path;
     const headers = { 'Content-Type': 'application/json', ...extraHeaders };
     if (TOKEN) headers['Authorization'] = `Bearer ${TOKEN}`;
     
-    const opts = {
+    const response = await fetch(url, {
       method,
       headers,
-      timeout: 10000,
-    };
-    
-    const response = await fetch(url, {
-      ...opts,
       body: body ? JSON.stringify(body) : undefined,
+      signal: AbortSignal.timeout(timeoutMs),
     });
     
     let parsed;
@@ -77,6 +73,7 @@ console.log('[Auth — Setup]');
 let r = await req('POST', '/auth/login',
   { email: 'admin@worknest.dev', password: 'Admin@12345' },
   { 'x-tenant-id': TENANT_ID },
+  60000,  // 60 second timeout for cold start
 );
 if (check('Login', r)) {
   TOKEN = r.body.accessToken || '';

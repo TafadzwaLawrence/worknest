@@ -1,12 +1,8 @@
 {
-  "generated": "2026-03-12T20:17:48.690Z",
+  "generated": "2026-03-12T20:35:01.489Z",
   "baseUrl": "https://worknest-01d4.onrender.com/api",
   "tenantId": "00000000-0000-0000-0000-000000000001",
-  "createdIds": {
-    "dept": "628f6e75-4a8f-456d-93dd-ad40a057c089",
-    "designation": "08eb9bf7-19f7-4d15-82a8-b5f05e80e2d3",
-    "workLocation": "f978ca48-1b29-4017-b974-b3063454cdc5"
-  },
+  "createdIds": {},
   "responses": {
     "POST /auth/register": {
       "message": "Email or username already in use",
@@ -21,6 +17,11 @@
       "message": "Super admin access required",
       "error": "Forbidden",
       "statusCode": 403
+    },
+    "POST /departments": {
+      "message": "A department with that code already exists",
+      "error": "Conflict",
+      "statusCode": 409
     },
     "GET /departments": {
       "data": [
@@ -44,6 +45,11 @@
       "total": 1,
       "page": 1,
       "limit": 20
+    },
+    "POST /designations": {
+      "message": "A designation with that code already exists",
+      "error": "Conflict",
+      "statusCode": 409
     },
     "GET /designations": {
       "data": [
@@ -71,6 +77,11 @@
       "total": 1,
       "page": 1,
       "limit": 20
+    },
+    "POST /work-locations": {
+      "message": "A work location with that code already exists",
+      "error": "Conflict",
+      "statusCode": 409
     },
     "GET /work-locations": {
       "data": [
@@ -203,6 +214,9 @@
       "page": 1,
       "limit": 20
     },
+    "GET /documents/storage-locations": [],
+    "GET /documents/categories": [],
+    "GET /documents/retention-policies": [],
     "GET /documents": {
       "data": [],
       "total": 0,
@@ -261,39 +275,8 @@
     "GET /notifications/unread": []
   },
   "summary": {
-    "passed": 51,
-    "failed": 6,
-    "failures": [
-      {
-        "endpoint": "POST /departments",
-        "status": 500,
-        "error": "Internal server error"
-      },
-      {
-        "endpoint": "POST /designations",
-        "status": 500,
-        "error": "Internal server error"
-      },
-      {
-        "endpoint": "POST /work-locations",
-        "status": 500,
-        "error": "Internal server error"
-      },
-      {
-        "endpoint": "GET /documents/storage-locations",
-        "status": 400,
-        "error": "Validation failed (uuid is expected)"
-      },
-      {
-        "endpoint": "GET /documents/categories",
-        "status": 400,
-        "error": "Validation failed (uuid is expected)"
-      },
-      {
-        "endpoint": "GET /documents/retention-policies",
-        "status": 400,
-        "error": "Validation failed (uuid is expected)"
-      }
-    ]
+    "passed": 57,
+    "failed": 0,
+    "failures": []
   }
 }
