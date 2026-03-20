@@ -20,64 +20,38 @@
 
 ## ❌ Current Issue
 
-**API Server Status**: `TIMEOUT` (5–60 second timeouts all exceeded)
+**Server Status**: Now awake and responding, but **DATABASE_URL environment variable missing on Render**
 
-### What's Happening
-- All requests to `https://worknest-01d4.onrender.com/api/*` are timing out
-- TLS handshake completes successfully (network connectivity OK)
-- But HTTP requests never receive a response
-- Even simple GET requests hang indefinitely
+### Error Details
+```
+[TypeOrmModule] Unable to connect to the database. Retrying (4)...
+error: Tenant or user not found
+```
 
-### Root Cause (Suspected)
-1. **Render Free Tier Cold Start**: Server may be sleeping and unresponsive
-2. **Database Connection Issue**: NestJS may be stuck connecting to Supabase
-3. **Server Crash**: Application may have crashed or be in error state
-4. **Network/Firewall**: Environmental restriction on this system
-
-### Last Known Working
-- **Commit**: 1b841e9 (`test: update smoke-test for reliable idempotent runs`)
-- **Date**: 20 March 2026 (today's date)
-- **Test**: smoke-test.mjs (57 endpoints) was passing at that point
+The TypeORM connection is failing because `DATABASE_URL` is not configured in Render's environment variables.
 
 ---
 
 ## 🔧 Troubleshooting Steps
 
-### Option 1: Check Render Dashboard
-1. Go to https://dashboard.render.com
-2. Find the WorkNest service (`worknest-01d4`)
-3. Check:
-   - Service status (should be "Live")
-   - Last deploy time
-   - Any error logs
-4. If service is sleeping, manually trigger a redeploy
+### ⚡ IMMEDIATE FIX REQUIRED
 
-### Option 2: Test from Another Network
-The timeouts might be environment-specific. Try running the test:
-```bash
-node scripts/smoke-test-crud.mjs
-```
-From a different network (mobile hotspot, different VPN, etc.)
+**See**: [`FIX_DATABASE_URL.md`](./FIX_DATABASE_URL.md) for step-by-step instructions
 
-### Option 3: Restart the Render Service
-In Render dashboard:
-1. Go to Service Settings
-2. Click "Manual Deploy" or restart service
-3. Wait 30–60 seconds for start
-4. Then run test again
+**Quick Summary**:
+1. Get your Supabase **pooler URL** from Supabase Dashboard → Connection Pooler
+2. Add `DATABASE_URL` environment variable to Render service
+3. Click "Manual Deploy" to restart with new environment
+4. Wait for logs to show: `TypeORM connected successfully`
+5. Then run `node scripts/smoke-test-crud.mjs`
 
-### Option 4: Check the API Directly (Manual Test)
-```bash
-# Try accessing the API directly
-curl -v https://worknest-01d4.onrender.com/api/departments \
-  -H "x-tenant-id: 00000000-0000-0000-0000-000000000001"
+---
 
-# If it loads, try login:
-curl -X POST https://worknest-01d4.onrender.com/api/auth/login \
-  -H "Content-Type: application/json" \
-  -H "x-tenant-id: 00000000-0000-0000-0000-000000000001" \
-  -d '{"email":"admin@worknest.dev","password":"Admin@12345"}'
-```
+### Why This Happened
+- `render.yaml` defines `DATABASE_URL` but marks it `sync: false`
+- This means it must be manually set in the Render dashboard
+- When the service restarted, the environment variable was missing
+- TypeORM couldn't authenticate to Supabase and crashed
 
 ---
 
