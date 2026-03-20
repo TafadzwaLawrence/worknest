@@ -56,7 +56,26 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Run tests
+## Testing
+
+### API Smoke Tests (Production Validation)
+These tests validate all endpoints work end-to-end against the live deployment:
+
+```bash
+# Basic endpoint test (list operations only) — 57 endpoints
+$ node scripts/smoke-test.mjs
+
+# Comprehensive CRUD test (create → read → update → delete) — 18+ resources
+$ node scripts/smoke-test-crud.mjs
+```
+
+**Output**: JSON files with response shapes for frontend integration
+- `scripts/api-responses.json`
+- `scripts/crud-responses.json`
+
+See [TESTING.md](./TESTING.md) for detailed testing guide, coverage analysis, and troubleshooting.
+
+### Unit & E2E Tests
 
 ```bash
 # unit tests
@@ -70,6 +89,11 @@ $ npm run test:cov
 ```
 
 ## Deployment
+
+**Live Production**: https://worknest-01d4.onrender.com/api
+- **API Docs**: https://worknest-01d4.onrender.com/api/docs (Swagger UI)
+- **Database**: Supabase PostgreSQL 15+ with pooler
+- **Status**: ✅ All 11 modules live and tested
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
